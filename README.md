@@ -33,3 +33,13 @@
 | 換算元 | 換算先 | レート |
 |--------|--------|--------|
 | CHF | USD | 1.5 |
+=======
+# How to proceed this repo
+
+I develop test code following the book.
+
+Create a repository for each chapter.
+
+For example, for Chapter 1, I will work in a repository called practice_01.
+
+# What I learned
