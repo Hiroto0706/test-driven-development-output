@@ -1,18 +1,25 @@
-# TODO list
-- $5 + 10CHF = $10
-- $5 * 2 = $10
+# 学んだこと
 
-# What I learned about this chaper
+### 1. TDDの開発フロー
 
-### 1. TDD's development flow
+1. 汚くてもいいからテストを書く
+2. テストを走らせ、失敗を確認する
+3. 修正を加える
+4. テストを走らせ通ることを確認する
+5. 最後にリファクタリング
 
-First, you write one test code.
-Second, you run the test and make sure it fails.
-Thrid, you modify the tests.
-Fourth, you run the test and make sure it passes.
-Finally, you refactor the tests and remove duplicates code.
+### 2. え？ハードコーディング？関係ないよ！
 
-### 2. Create a TODO list of tests
+汚くてもハードコード絵もいいので、とりあえず通るコードを書くことを心がける。
 
-Create TODO list of tests help you.
+最初はこんな汚いコードでもいい。とにかくテストが通るコードを書け！
 
+```python
+class Dollar():
+    def __init__(self, amount: int):
+        self.amount = 5
+
+    def times(self, multiplier: int):
+        self.amount *= 2
+
+```

@@ -1,37 +1,35 @@
 # What is this?
-This is the output repository for 'テスト駆動開発'.
-
-https://www.amazon.co.jp/%E3%83%86%E3%82%B9%E3%83%88%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA-Kent-Beck/dp/4274217884
+これは「[テスト駆動開発](https://www.amazon.co.jp/%E3%83%86%E3%82%B9%E3%83%88%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA-Kent-Beck/dp/4274217884)」のアウトプット用のリポジトリになります。
 
 ![alt text](/assets/image.png)
 
 # Requirements this practice
 
-## WyCash Multi-Currency System Requirements
+## WyCash 多国通貨システム要件
 
-| Requirement | Description |
-|-------------|-------------|
-| 1. Multi-currency support | Add currency information to prices and totals (USD, CHF, etc.) |
-| 2. Currency conversion | Define exchange rates between different currencies |
-| 3. Base currency calculation | Convert all totals to a base currency (e.g., USD) |
+| 要件 | 説明 |
+|------|------|
+| 1. 多国通貨対応 | 価格と合計に通貨情報を追加する（USD、CHF など） |
+| 2. 通貨換算 | 異なる通貨間の為替レートを定義する |
+| 3. 基準通貨計算 | すべての合計を基準通貨（USD など）に換算する |
 
-## Current State and Goal
+## 現在の状態と目標
 
-### Current System
-| Symbol | Shares | Price | Total |
-|--------|--------|-------|-------|
+### 現在のシステム
+| 銘柄 | 株数 | 価格 | 合計 |
+|------|------|------|------|
 | IBM | 1000 | 25 | 25000 |
 | GE | 400 | 100 | 40000 |
-|  |  | Grand Total | 65000 |
+|  |  | 総計 | 65000 |
 
-### Target System
-| Symbol | Shares | Price | Total |
-|--------|--------|-------|-------|
+### 目標システム
+| 銘柄 | 株数 | 価格 | 合計 |
+|------|------|------|------|
 | IBM | 1000 | 25 USD | 25000 USD |
 | Novartis | 400 | 150 CHF | 60000 CHF |
-|  |  | Grand Total | 65000 USD |
+|  |  | 総計 | 65000 USD |
 
-### Required Exchange Rate Definition
-| From | To | Rate |
-|------|-----|------|
+### 必要な為替レート定義
+| 換算元 | 換算先 | レート |
+|--------|--------|--------|
 | CHF | USD | 1.5 |
