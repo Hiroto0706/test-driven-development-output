@@ -1,4 +1,3 @@
-# TODO: equals()
 # TODO: hashCode()
 class Dollar:
     def __init__(self, amount: int):
@@ -8,6 +7,8 @@ class Dollar:
     def times(self, multiplier: int):
         return Dollar(self.amount * multiplier)
 
-    @staticmethod
-    def equals(object):
-        return True
+    # TODO: nullとの等価性比較
+    # TODO: 他のオブジェクトとの等価性比較
+    def equals(self, object: "Dollar"):
+        dollar = object
+        return self.amount == dollar.amount

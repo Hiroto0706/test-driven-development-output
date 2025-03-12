@@ -14,3 +14,4 @@ def test_multiplication():
 
 def test_equality():
     assert Dollar(5).equals(Dollar(5))
+    assert not Dollar(5).equals(Dollar(6))
