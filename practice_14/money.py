@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Dict
 
 
 class Expression(ABC):
@@ -19,7 +20,7 @@ class Money(Expression):
         return Sum(self, addend)
 
     def reduce(self, bank: 'Bank', to: str) -> 'Money':
-        rate = bank.rate(self.currency, to)
+        rate = bank.rate(self._currency, to)
         return Money(self._amount / rate, to)
 
     def currency(self) -> str:
@@ -53,14 +54,19 @@ class Sum(Expression):
 
 
 class Bank:
-    def reduce(self, source: Expression, to: str) -> Money:
+    def __init__(self):
+        self.rates: Dict[Pair, str] = {}
+
+    def reduce(self, source: Expression, to: str) -> "Money":
         return source.reduce(self, to)
 
     def add_rate(self, from_c: str, to_c: str, rate: int):
-        pass
+        self.rates[Pair(from_c, to_c)] = rate
 
-    def rate(self, from_c: str, to_c: str):
-        return 2 if from_c == 'CHF' and to_c == 'USD' else 1
+    def rate(self, from_c: str, to_c: str) -> int:
+        if from_c == to_c:
+            return 1
+        return self.rates.get(Pair(from_c, to_c))
 
 
 class Pair:
@@ -68,9 +74,10 @@ class Pair:
         self._from = from_c
         self._to = to_c
 
-    def equals(self, obj) -> bool:
-        pair = obj
-        return self._from == pair._from and self._to == pair._to
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, Pair):
+            return False
+        return self._from == other._from and self._to == other._to
 
-    def hash_code() -> int:
-        return 0
+    def __hash__(self) -> int:
+        return hash((self._from, self._to))
